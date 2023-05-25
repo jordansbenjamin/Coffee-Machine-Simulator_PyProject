@@ -1,6 +1,7 @@
 
 # TODO: Prompt user
     # "What would you like? (espresso/latte/cappuccino)"
+selection = input("What would you like? (espresso/latte/cappuccino)")
     # Check the user's input to decide what to do next
     # The prompt should show every time action has completed, e.g. once the drink is dispensed. The prompt should show again to serve the next customer.
 
@@ -17,12 +18,19 @@
 
 # TODO: Process coins
     # If there are sufficient resources to make the drink selected, then the program should prompt the user to insert coins.
+print("Please insert coins.")
+quarters = float(input("How many quarters?: "))
+dimes = float(input("How many dimes?: "))
+nickles = float(input("How many nickles?: "))
+pennies = float(input("How many pennies?: "))
     # Remember that quarters = $0.25, dimes = $0.10, nickles = $0.05, pennies = $0.01
     # Calculate the monetary value of the coins inserted. E.g. 1 quarter, 2 dimes, 1 nickel, 2 pennies = 0.25 + 0.1 x 2 + 0.05 + 0.01 x 2 = $0.52
 
 # TODO: Check transaction successful?
-    # Check that the user has inserted enough money to purchase the drink they selected.
+    # Check that the user has inserted enough money to purchase the drink they selected.")
     # E.g Latte cost $2.50, but they only inserted $0.52 then after counting the coins the program should say “ Sorry that's not enough money. Money refunded. ”.
+# If user doesn't have enough money
+print("Sorry that's not enough money. Money refunded.")
     # But if the user has inserted enough money, then the cost of the drink gets added to the machine as the profit and this will be reflected the next time “report” is triggered.
     # If the user has inserted too much money, the machine should offer change.
     # E.g. “Here is $2.45 dollars in change.” The change should be rounded to 2 decimal places.
