@@ -34,7 +34,11 @@ print("Sorry that's not enough money. Money refunded.")
     # But if the user has inserted enough money, then the cost of the drink gets added to the machine as the profit and this will be reflected the next time “report” is triggered.
     # If the user has inserted too much money, the machine should offer change.
     # E.g. “Here is $2.45 dollars in change.” The change should be rounded to 2 decimal places.
+def transaction():
+    pass
 
 # TODO: Make coffee
     # If the transaction is successful and there are enough resources to make the drink the user selected, then the ingredients to make the drink should be deducted from the coffee machine resources.
     # Once all resources have been deducted, tell the user “Here is your latte. Enjoy!”. If latte was their choice of drink.
+def make_coffee():
+    pass
