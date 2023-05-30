@@ -76,6 +76,7 @@ def transaction(total, selection):
     cost = MENU[selection]['cost']
     if total < cost:
         print("Sorry that's not enough money. Money refunded.")
+        return 0
     elif total > cost:
         change = round(total - cost, 2)
         print(f"Here is ${change} in change.")
@@ -86,6 +87,7 @@ def transaction(total, selection):
 
 
 def coffee_machine():
+    profit = 0
     while True:
         # TODO: Prompt user
         # "What would you like? (espresso/latte/cappuccino)"
@@ -104,6 +106,8 @@ def coffee_machine():
                     print(f"{k.capitalize()}: {v}ml")
                 elif k == 'coffee':
                     print(f"{k.capitalize()}: {v}g")
+            print(f"Money: ${profit}")
+            continue
         else:
             enough_resource = check_resource(selection)    
         
@@ -111,7 +115,7 @@ def coffee_machine():
             print("Enough resource")
             total = process_coins()
             print(f"${total}")
-            transaction(total, selection)
+            profit += transaction(total, selection)
         else:
             print("Not enough resource")
 
