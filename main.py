@@ -86,6 +86,19 @@ def transaction(total, selection):
         return cost
 
 
+# TODO: Make coffee
+    # If the transaction is successful and there are enough resources to make the drink the user selected, then the ingredients to make the drink should be deducted from the coffee machine resources.
+    # Once all resources have been deducted, tell the user “Here is your latte. Enjoy!”. If latte was their choice of drink.
+def make_coffee(selection):
+    ingredients = MENU[selection]['ingredients']
+
+    for ingredient, amount in resources.items():
+        if ingredient in ingredients:
+            amount - ingredients[ingredient]
+    
+    print(f"Here is your {selection}")
+
+
 def coffee_machine():
     profit = 0
     while True:
@@ -94,6 +107,8 @@ def coffee_machine():
         selection = input("What would you like? (espresso/latte/cappuccino): ")
             # Check the user's input to decide what to do next
             # The prompt should show every time action has completed, e.g. once the drink is dispensed. The prompt should show again to serve the next customer.
+        # TODO: Turn off the coffee machine by entering "off" to the prompt
+        # For maintainers of the coffee machine, they can use “off” as the secret word to turn off the machine. Your code should end execution when this happens.
         if selection.lower() == 'off':
             break
         elif selection.lower() == 'report':
@@ -116,18 +131,8 @@ def coffee_machine():
             total = process_coins()
             print(f"${total}")
             profit += transaction(total, selection)
+            make_coffee(selection)
         else:
             print("Not enough resource")
 
 coffee_machine()
-
-
-# TODO: Make coffee
-    # If the transaction is successful and there are enough resources to make the drink the user selected, then the ingredients to make the drink should be deducted from the coffee machine resources.
-    # Once all resources have been deducted, tell the user “Here is your latte. Enjoy!”. If latte was their choice of drink.
-def make_coffee():
-    pass
-
-# TODO: Turn off the coffee machine by entering "off" to the prompt
-    # For maintainers of the coffee machine, they can use “off” as the secret word to turn off the machine. Your code should end execution when this happens.
-
