@@ -33,12 +33,36 @@ def check_resource(selection):
     # Calculate the monetary value of the coins inserted. E.g. 1 quarter, 2 dimes, 1 nickel, 2 pennies = 0.25 + 0.1 x 2 + 0.05 + 0.01 x 2 = $0.52
 def process_coins():
     print("Please insert coins.")
-    q_amount = float(input("How many quarters?: "))
-    d_amount = float(input("How many dimes?: "))
-    n_amount = float(input("How many nickles?: "))
-    p_amount = float(input("How many pennies?: "))
+    # q_amount = float(input("How many quarters?: "))
+    # d_amount = float(input("How many dimes?: "))
+    # n_amount = float(input("How many nickles?: "))
+    # p_amount = float(input("How many pennies?: "))
 
-    return q_amount, d_amount, n_amount, p_amount
+    # quarters = 0.25 * q_amount  
+    # dimes = 0.10 * d_amount
+    # nickles = 0.05 * n_amount
+    # pennies = 0.01 * p_amount
+
+    # total = quarters + dimes + nickles + pennies
+
+    # return total
+    coin_values = {
+        'quarters': 0.25,
+        'dimes': 0.10,
+        'nickles': 0.05,
+        'pennies': 0.01,
+    }
+
+    total = 0
+
+    for coin, value in coin_values.items():
+        coin_amount = int(input(f"How many {coin}?: "))
+        while coin_amount < 0:
+            print("Invalid Input. Please enter a non-negative value.")
+            coin_amount = int(input(f"How many {coin}?: "))
+        total += value * coin_amount
+
+    return total
 
 # TODO: Check transaction successful?
     # Check that the user has inserted enough money to purchase the drink they selected.")
@@ -74,11 +98,11 @@ def coffee_machine():
             enough_resource = check_resource(selection)    
         
         if enough_resource:
-            print("Enough")
-            q_amount, d_amount, n_amount, p_amount = process_coins()
-            print(q_amount, d_amount, n_amount, p_amount)
+            print("Enough resource")
+            total = process_coins()
+            print(total)
         else:
-            print("Not enough")
+            print("Not enough resource")
 
 coffee_machine()
 
