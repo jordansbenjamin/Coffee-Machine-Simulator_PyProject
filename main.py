@@ -72,8 +72,18 @@ def process_coins():
     # But if the user has inserted enough money, then the cost of the drink gets added to the machine as the profit and this will be reflected the next time “report” is triggered.
     # If the user has inserted too much money, the machine should offer change.
     # E.g. “Here is $2.45 dollars in change.” The change should be rounded to 2 decimal places.
-def transaction():
-    pass
+def transaction(total, selection):
+    cost = MENU[selection]['cost']
+    if total < cost:
+        print("Sorry that's not enough money. Money refunded.")
+    elif total > cost:
+        change = round(total - cost, 2)
+        print(f"Here is ${change} in change.")
+        return cost
+    else:
+        print("Just the right amount")
+        return cost
+
 
 def coffee_machine():
     while True:
@@ -100,7 +110,8 @@ def coffee_machine():
         if enough_resource:
             print("Enough resource")
             total = process_coins()
-            print(total)
+            print(f"${total}")
+            transaction(total, selection)
         else:
             print("Not enough resource")
 
