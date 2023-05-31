@@ -96,7 +96,7 @@ def make_coffee(selection):
         if ingredient in resources:
             resources[ingredient] -= ingredients[ingredient]
     
-    print(f"Here is your {selection}")
+    print(f"Here is your {selection} ☕️")
 
 
 def coffee_machine():
@@ -136,3 +136,7 @@ def coffee_machine():
             print("Not enough resource")
 
 coffee_machine()
+
+# Extra features:
+# Welcome the user with instructions
+# Re-fill resource takes out some money from the machines profit amount
