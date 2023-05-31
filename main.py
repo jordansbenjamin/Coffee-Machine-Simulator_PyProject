@@ -92,9 +92,9 @@ def transaction(total, selection):
 def make_coffee(selection):
     ingredients = MENU[selection]['ingredients']
 
-    for ingredient, amount in resources.items():
-        if ingredient in ingredients:
-            amount - ingredients[ingredient]
+    for ingredient in ingredients:
+        if ingredient in resources:
+            resources[ingredient] -= ingredients[ingredient]
     
     print(f"Here is your {selection}")
 
